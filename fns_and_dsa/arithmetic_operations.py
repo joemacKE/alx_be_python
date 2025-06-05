@@ -1,4 +1,4 @@
-def perform_operation(num1, num2, operation="add, subtract, multiply, divide"):
+def perform_operation(num1, num2, operation):
     if operation == "add, +":
         return num1 + num2
     elif operation == "subtract, -":
@@ -11,5 +11,5 @@ def perform_operation(num1, num2, operation="add, subtract, multiply, divide"):
         return num1 / num2
     else:
         print("Invalid operation specified.")
-        
+
     

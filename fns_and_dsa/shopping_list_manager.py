@@ -19,14 +19,15 @@ def main():
                 print(f"Added '{item}' to the shopping list")
         elif choice == "2":
             item = input("Enter an item to remove: ")
-            if item != shopping_list:
-                print("Item not found")
-            else:
+            if item in shopping_list:
                 shopping_list.remove(item)
+                print(f"Removed '{item}' from the shopping list")
+            else:
+                print("Item is not in the list")
         elif choice == "3":
             print(shopping_list)
         elif choice == "4":
-            print("Goodbye")
+            print("Goodbye!")
             break
         else:
             print("Invalid choice. Please try again.")

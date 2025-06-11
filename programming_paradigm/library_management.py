@@ -12,17 +12,37 @@ class Book:
         if not self._is_checked_out:
             raise Exception(f"The book '{self.title}' is not checkoud out.")
         self._is_checked_out = False
-        self.available = 1
+    def is_available(self):
+        return not self._is_checked_out
     
-class Library(Book):
-    def add_book(self, available):
-        self.available += self.author
+class Library:
+    def __init__(self):
+        self.books = []
+
+    def add_book(self, book):
+        self._books.append(book)
 
     def check_out_book(self, title):
-        if self._is_checked_out:
-            self.title -= self.title
-    def return_book(self, title, available):
-        self.available += self.title
+        for book in self.books:
+            if book.title == title and book.is_available():
+                book.check_out()
+                print(f"You have checked out '{book.title}' by {book.author}.")
+                return
+        print(f"Sorry, '{title}' is not available for checkout.")
+    
+    def return_book(self, title):
+        for book in self.books:
+            if book.title == title and not book.is_available():
+                book.return_book()
+                print(f"You have returned '{book.title}' by {book.author}.")
+                return
+        print(f"Sorry, '{title}' was not checked out or does not exist in the library.")
         
     def list_available_books(self):
-        print(f"Available books after setup: {self.title} by {self.author}")
+        available_books = [book for book in self._books if book.is_available()]
+        if available_books:
+            print("Available books:")
+            for book in available_books:
+                print(f"{book.title} by {book.author}")
+        else:
+            print("No books are currently available.")

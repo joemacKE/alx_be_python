@@ -14,6 +14,8 @@ class Book:
         self._is_checked_out = False
     def is_available(self):
         return not self._is_checked_out
+def __str__(self):
+    return f"{self.title} by {self.author}"
     
 class Library:
     def __init__(self):

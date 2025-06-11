@@ -7,13 +7,15 @@ class BankAccount:
     def deposit(self, amount):
         amount = int(input("Enter the amount to deposit: "))
         self.account_balance += amount
+        print(f"Deposited: ${amount}")
     
     def withdraw(self, amount):
         amount = int(input("Enter amount to withdraw: "))
         if self.account_balance > amount:
-            return True
+            self.account_balance -= amount
+            print(f"Withdrew: ${amount}")
         else:
-            return False
+            print("Insufficient funds.")
     
     def display_balance(self):
         print(f"Your account balance is: ${self.account_balance:.2f}")

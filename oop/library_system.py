@@ -33,4 +33,4 @@ class Library(Book):
     
     def list_books(self):
         for book in self.books:
-            print(f"{self.title} by {self.author}, File Size: {self.file_size}")
+            print(f"{book.title} by {book.author}, File Size: {book.file_size}")

@@ -21,10 +21,7 @@ class PrintBook(Book):
         return f"{self.title} by {self.author}"
 
 class Library(Book):
-    def __init__(self, title, author):
-        super().__init__(title, author)
-        self.title = title
-        self.author = author
+    def __init__(self):
         self.books = []
     
     def __str__(self):

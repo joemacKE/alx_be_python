@@ -20,12 +20,9 @@ class PrintBook(Book):
     def __str__(self):
         return f"{self.title} by {self.author}"
 
-class Library(Book):
+class Library:
     def __init__(self):
         self.books = []
-    
-    def __str__(self):
-        return f"Library: {self.title} by {self.author}"
 
     def add_book(self, book):
         if isinstance(book, Book):
@@ -33,4 +30,4 @@ class Library(Book):
     
     def list_books(self):
         for book in self.books:
-            print(f"{book.title} by {book.author}, File Size: {book.file_size}")
+            print(book)

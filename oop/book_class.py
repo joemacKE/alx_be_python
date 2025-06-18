@@ -11,5 +11,5 @@ class Book:
         return f"Book('{self.title!r}', '{self.author!r}', {self.year!r})"
     
     def __del__(self):
-        del self.title
         print(f"Deleting {self.title}")
+        del self.title
